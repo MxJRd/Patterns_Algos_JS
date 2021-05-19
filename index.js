@@ -1,9 +1,18 @@
 /*
 Write a function called countUniqueValues which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted. 
 */
+/* Patterns */
 const SlidingWindow = require('./SlidingWindow');
 const TwoPointer = require('./TwoPointer');
+const FrequencyCounter = require('./FrequencyCounter');
+/* Patterns */
+
+const SearchingAlgos = require('./SearchingAlgos');
 const SortingAlgos = require('./SortingAlgos');
+
+
+/* Sliding Window */
+
 // SlidingWindow.maxSubArraySum([2, 1, 5, 1, 3, 2], 3); //9
 // SlidingWindow.maxSubArraySum([2, 3, 4, 1, 5], 2); //7
 
@@ -16,8 +25,10 @@ const SortingAlgos = require('./SortingAlgos');
 // SlidingWindow.longestSubStringWithKDistinctCharacters("cbbebi", 3); //5 => "cbbeb" && "bbebi"
 
 // SlidingWindow.fruitsIntoBaskets(['A', 'B', 'C', 'B', 'B', 'C']); // 5 => ['B', 'C', 'B', 'B', 'C']
+/* Sliding Window */
 
 
+/* Two Pointer */
 //Returns index;
 // TwoPointer.pairWithTargetSum([1, 2, 3, 4, 6], 6); // [1, 3] => 2 + 4 = 6;
 // TwoPointer.pairWithTargetSum([2, 5, 9, 11], 11); // [0, 2] => 2 + 9 = 11;
@@ -26,9 +37,25 @@ const SortingAlgos = require('./SortingAlgos');
 // console.log("Test")
 // TwoPointer.removeDuplicates([2, 3, 3, 3, 6, 9, 9]);
 // TwoPointer.makeSquares([-2, -1, 0, 2, 3]);
+/* Two Pointer */
 
-SortingAlgos.mergeSort([0, 2, 3, 1, 4, 6]);
 
+/* Frequency Counter */
+// FrequencyCounter.sameFrequency(182, 281) // true
+// FrequencyCounter.sameFrequency(34, 14) // false
+// FrequencyCounter.sameFrequency(3589578, 5879385) //true
+// FrequencyCounter.sameFrequency(22, 222) // false
+/* Frequency Counter */
+
+/* Searching Algos */
+// SearchingAlgos.linearSearch([10, 15, 25, 30, 40], 15); // 1
+SearchingAlgos.binarySearch([1, 3, 4, 5, 7, 10, 11, 15, 17], 15); //7
+/* Searching Algos */
+
+
+/* SortingAlgos */
+// SortingAlgos.mergeSort([0, 2, 3, 1, 4, 6]);
+/* SortingAlgos */
 
 const countUniqueValues = (arr) => {
   if(!arr || arr.length === 0) return 0;
@@ -49,29 +76,8 @@ const countUniqueValues = (arr) => {
 
 
 
-function sameFrequency(n1, n2) {
-  n1 = `${n1}`;
-  n2 = `${n2}`;
-  const freqCounter1 = {},
-        freqCounter2 = {};
-  for(const num of n1) {
-    freqCounter1[num] = (freqCounter1[num] || 0) + 1;
-  }
-  for(const num of n2) {
-    freqCounter2[num] = (freqCounter2[num] || 0) + 1;
-  }
-  for(const key in freqCounter1) {
-    if(freqCounter1[key] !== freqCounter2[key]) {
-      return false;
-    }
-  }
-  return true;
-}
 
-// sameFrequency(182, 281) // true
-// sameFrequency(34, 14) // false
-// sameFrequency(3589578, 5879385) //true
-// sameFrequency(22, 222) // false
+
 
 // function areThereDuplicates(...args) {
 //   let i = 0,

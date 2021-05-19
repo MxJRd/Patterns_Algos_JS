@@ -41,6 +41,10 @@ function mergeSort(arr) {
   return merge(left, right);
 }
 
+function quickSort() {
+  
+}
+
 module.exports = {
   mergeSort,
 }
